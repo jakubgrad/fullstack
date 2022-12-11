@@ -45,7 +45,7 @@ const App = () => {
     <div>
       <div>{anecdotes[selected]}</div>
       <div>has {points[selected]} votes</div>
-      <Button handleclick = {Randomize} text = "das"/>
+      <Button handleclick = {Randomize} text = "next anecdote"/>
       <Button handleclick = {Vote} text = "vote"/>
     </div>
   )
