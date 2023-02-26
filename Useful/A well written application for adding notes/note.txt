@@ -1,0 +1,5 @@
+You have to run a command to get notes on localhost 3000. Use the following command in the same place as you would use npm start in a separate cmd window
+
+npm install -g json-server
+json-server --port 3001 --watch db.json or npx json-server --port 3001 --watch db.json
+You can now access http://localhost:3001/notes in the browser

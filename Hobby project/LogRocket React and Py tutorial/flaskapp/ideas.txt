@@ -1,0 +1,12 @@
+An alternative, perhaps quicker approach to getting a wikipedia page in a smaller size is to first check for the
+page number of the word (and whether it exists), then use this notation used by someone in a similar project on 
+github:
+
+https://en.wiktionary.org/w/api.php?action=query&titles=test&format=json 
+
+retrieve page number/return that it doesnt exist and then look up:
+
+ https://en.wiktionary.org/w/api.php?action=parse&format=json&prop=text|revid|displaytitle&callback=?&page= (page number goes here)
+ 
+ ALERT! It doesnt seem to work for a large number of page numbers.
+ 

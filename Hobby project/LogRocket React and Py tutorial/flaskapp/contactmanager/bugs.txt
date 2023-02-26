@@ -1,0 +1,1 @@
+when you submit a word twice very fast for the first time, a request passes to the server, probably bc it didn't appear in listOfContacts yet. 

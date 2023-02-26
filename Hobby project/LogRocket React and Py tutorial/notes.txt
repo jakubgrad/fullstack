@@ -1,0 +1,3 @@
+How to use:
+npm start in flaskapp >> contactmanager folder
+start app.py and run it
