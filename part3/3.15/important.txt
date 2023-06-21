@@ -1,0 +1,2 @@
+You can start the app with nodemon to update app every time you make changes to it with npm run dev 
+

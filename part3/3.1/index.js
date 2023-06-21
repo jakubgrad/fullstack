@@ -1,7 +1,18 @@
+const cors = require('cors')
+
+
 const repl = require('repl');
-const express = require('express')
+const express = require('express');
+const { request } = require('http');
+const { response } = require('express');
 const app = express()
+app.use(cors())
 app.use(express.json())
+var morgan = require('morgan')
+app.use(morgan(':method :url :status :res[content-length] - :response-time ms'))
+//morgan.token('type', function (req, res) { return req.headers['content-type'] })
+	
+
 
 let notes = [
     {
@@ -21,66 +32,125 @@ let notes = [
     }
   ]
 
+let persons = [
+  { 
+    "id": 1,
+    "name": "Arto Hellas", 
+    "number": "040-123456"
+  },
+  { 
+    "id": 2,
+    "name": "Ada Lovelace", 
+    "number": "39-44-5323523"
+  },
+  { 
+    "id": 3,
+    "name": "Dan Abramov", 
+    "number": "12-43-234345"
+  },
+  { 
+    "id": 4,
+    "name": "Mary Poppendieck", 
+    "number": "39-23-6423122"
+  }
+]
+
 app.get('/', (request, response) => {
   response.send('<h1>Hellod World!</h1>')
 })
 
-app.get('/api/notes', (request, response) => {
+app.get('/api/persons', (request, response) => {
   //console.log(request.headers)
-  response.json(notes)
+  response.json(persons)
 })
 
-app.get('/api/notes/:id', (request, response) => {
+app.get('/api/persons/:id', (request, response) => {
   const id = Number(request.params.id)
   console.log(id)
-  const note = notes.find(note => {
-    console.log(note.id, typeof note.id, id, typeof id, note.id === id)
-    return note.id === id
+  const person = persons.find(person => {
+    //console.log(note.id, typeof note.id, id, typeof id, note.id === id)
+    return person.id === id
   })
 
-  console.log(note)
-  if (note) {
-    response.json(note)
+  //console.log(note)
+  if (person) {
+    response.json(person)
   } else {
     response.status(404).end()
   }
 })
 
-app.delete('/api/notes/:id', (request, response) => {
+app.delete('/api/persons/:id', (request, response) => {
   const id = Number(request.params.id)
-  notes = notes.filter(note => note.id !== id)
-
+  persons = persons.filter(person => person.id !== id)
   response.status(204).end()
 })
 
 
 const generateId = () => {
-  const maxId = notes.length > 0
-    ? Math.max(...notes.map(n => n.id))
+  const maxId = persons.length > 0
+    ? Math.max(...persons.map(n => n.id))
     : 0
   return maxId + 1
 }
 
-app.post('/api/notes', (request, response) => {
+app.get('/info', (request,response) => {
+  number = generateId()-1
+  const futureDate = new Date()
+  response.send('Phonebook has info for '+number+' people</br>'+ futureDate)
+})
+
+const randomId = () => {
+  return Math.round(Math.random()*10000)
+}
+
+app.post('/api/persons', (request, response) => {
   
   const body=request.body
 
   if (!request.body) {
     return response.status(400).json({
-      error: 'content missing'
+      error: 'entire body of request missing'
     })
   }
 
-  const note = {
-    content: body.content,
-    important: body.important || false,
-    id: generateId()
+  if (!body.number) {
+    return response.status(400).json({
+      error: 'Number is missing in the request'
+    })
   }
 
-  notes = notes.concat(note)
+  if (!body.name) {
+    return response.status(400).json({
+      error: 'Name is missing in the request'
+    })
+  }
 
-  response.json(note)
+  const duplicate = persons.find(person => person.name === body.name)
+  console.log(duplicate)
+  console.log(duplicate)
+  if (duplicate) {
+    return response.status(400).json({
+      error: 'The name already exists in the phonebook'
+    })
+  }
+
+  const person = {
+    id: randomId(),
+    name: body.name,
+    number: body.number,
+  }
+
+  persons = persons.concat(person)
+
+  response.json(person)
 })
+
+const unknownEndpoint = (request, response) => {
+  response.status(404).send({ error: 'unknown endpoint' })
+}
+
+app.use(unknownEndpoint)
 
 const PORT = 3001
 app.listen(PORT, () => {
