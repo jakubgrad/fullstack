@@ -1,2 +1,0 @@
-ostatnie zadania zwiazane z fly.io i Render i ogolnie poczatek 3b wymaga od cb, zebys zrobil npm start w 3b frontend i npm run dev w exercising albo w 3.1. Te dwa deplyoment porozumiewaja sie ze soba.
-
