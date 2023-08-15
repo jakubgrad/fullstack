@@ -1,0 +1,9 @@
+PUT http://localhost:3003/api/blogs/64bbc4325cada4e755b18d4e
+Content-Type: application/json
+
+{
+  "title": "Rooks",
+  "author": "Delegation",
+  "url": "mouseandcat.fi",
+  "likes": "3"
+}
