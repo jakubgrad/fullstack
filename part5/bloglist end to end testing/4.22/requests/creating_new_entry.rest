@@ -1,0 +1,20 @@
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imt1YmEiLCJpZCI6IjY0ZDdkMjAxMzg0ZjFkYTA1OTcwZmY3YiIsImlhdCI6MTY5MTk0NzM5NywiZXhwIjoxNjkxOTUwOTk3fQ.LV_itqlcBDLhD4WhcRPiAo8hFvEsk9WS3jLCUlSDxPs
+
+{
+  "title":"2Wouldnt have guessed its kuba",
+  "author":"still dre",
+  "url":"btu.com",
+  "likes":2, 
+  "userId":"64d7d201384f1da05970ff7b"
+}
+
+
+//{
+//  "title": "sitasdasd aasdasdnd look",
+//  "author": "Delegsadacxcation",
+//  "url": "mouseanxccdcat.fi",
+//  "likes": "2",
+//  "userId": "64d63cbb05a24e9de3a2a9d9"
+//}

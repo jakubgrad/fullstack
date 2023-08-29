@@ -1,0 +1,5 @@
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imt1dWJhIiwiaWQiOiI2NGQ3ZWU5MjQ4ZmMwYzJlYzJjMDQ5MmEiLCJpYXQiOjE2OTE5NDE0MTgsImV4cCI6MTY5MTk0NTAxOH0.4ZJcwFhPnZ_1KGoiRTCo44Y_QuTpwufCptzkqSbwVKk
+//doesnt work
+DELETE  http://localhost:3003/api/blogs/64d7d201384f1da05970ff7b
+    
