@@ -24,31 +24,31 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 Cypress.Commands.add('login', ({ username, password }) => {
-    cy.request('POST', 'http://localhost:3003/api/login', {
-      username, password
-    }).then(({ body }) => {
-      localStorage.setItem('loggedBlogappUser', JSON.stringify(body))
-      cy.visit('') //cy.visit('http://localhost:3000')
-    })
+  cy.request('POST', 'http://localhost:3003/api/login', {
+    username, password
+  }).then(({ body }) => {
+    localStorage.setItem('loggedBlogappUser', JSON.stringify(body))
+    cy.visit('') //cy.visit('http://localhost:3000')
   })
+})
 
 Cypress.Commands.add('createBlog', ({ title, author, url }) => {
-cy.request({
+  cy.request({
     url: 'http://localhost:3003/api/blogs',
     method: 'POST',
     body: { title, author, url },
     headers: {
-    'Authorization': `Bearer ${JSON.parse(localStorage.getItem('loggedBlogappUser')).token}`
+      'Authorization': `Bearer ${JSON.parse(localStorage.getItem('loggedBlogappUser')).token}`
     }
-})
+  })
 
-cy.visit('') //cy.visit('http://localhost:3000')
+  cy.visit('') //cy.visit('http://localhost:3000')
 })
 
 Cypress.Commands.add('likeBlogByTitle', ({ title }) => {
-    cy.visit('') //cy.visit('http://localhost:3000')
-    cy.contains('.blogStyle2', title)
-        .find('.likeButton')
-        .click()
-      cy.get('html').should('contain',`Successfully liked ${title}`)
-    })
+  cy.visit('') //cy.visit('http://localhost:3000')
+  cy.contains('.blogStyle2', title)
+    .find('.likeButton')
+    .click()
+  cy.get('html').should('contain',`Successfully liked ${title}`)
+})
