@@ -1,0 +1,1 @@
+Not sure i understood what 6.1 expects exactly. What other tests should I implement? How do i check if the state is immutable using deep freeze? Isn't it already in the base files?
