@@ -1,0 +1,61 @@
+{
+  "anecdotes": [
+    {
+      "content": "asd oiajspoda pjap d",
+      "votes": 11,
+      "id": "wFvjUvV"
+    },
+    {
+      "content": "a ojaoi jdoai jsd ",
+      "votes": 17,
+      "id": "Rviv0iO"
+    },
+    {
+      "content": "asdi ahds au ida ",
+      "votes": 14,
+      "id": "w80Y5SE"
+    },
+    {
+      "content": "dfs dsf sd fs fds ",
+      "votes": 0,
+      "id": "iKgGpr1"
+    },
+    {
+      "content": "asd auda oiushdias hdisa ",
+      "votes": 0,
+      "id": "U0PnbBl"
+    },
+    {
+      "content": "as jdksajd asda",
+      "votes": 0,
+      "id": "iXRFp10"
+    },
+    {
+      "content": "a asd a asd a s d",
+      "votes": 0,
+      "id": "eXSgw1d"
+    },
+    {
+      "content": "asd as dais jdoa d",
+      "votes": 0,
+      "id": "lwsXWxt"
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
